@@ -32,14 +32,14 @@ const sassOptions = {
       fs.writeFileSync(`dist/css/${name}.css`, content);
     });
   },
-  processor: css => postcss([
+  processor: (css) => postcss([
     autoprefixer({
       grid: false
     }),
     cssnano()
   ])
     .process(css)
-    .then(result => result.css)
+    .then((result) => result.css)
 };
 
 const plugins = [
@@ -75,15 +75,10 @@ if (process.env.DEVELOPMENT) {
     notify: false,
     open: true,
     server: {
-      baseDir: 'docs/welcome',
+      baseDir: 'playground',
       routes: {
-        '/shepherd/dist/css/shepherd-theme-default.css': 'dist/css/shepherd-theme-default.css',
-        '/shepherd/dist/js/shepherd.js': 'dist/js/shepherd.js',
-        '/shepherd/docs/welcome/js/prism.js': 'docs/welcome/js/prism.js',
-        '/shepherd/docs/welcome/js/welcome.js': 'docs/welcome/js/welcome.js',
-        '/shepherd/docs/welcome/css/prism.css': 'docs/welcome/css/prism.css',
-        '/shepherd/docs/welcome/css/welcome.css': 'docs/welcome/css/welcome.css',
-        '/shepherd/docs/welcome/sheep.svg': 'docs/welcome/sheep.svg'
+        '/eh-target/dist/css/main.css': 'dist/css/main.css',
+        '/eh-target/dist/js/main.js': 'dist/js/main.js'
       }
     }
   }));
@@ -96,13 +91,13 @@ plugins.push(visualizer());
 const rollupBuilds = [
   // Generate unminifed bundle
   {
-    input: './src/js/shepherd.js',
+    input: './src/js/main.js',
 
     output: [
       {
         file: pkg.main,
         format: 'umd',
-        name: 'Shepherd',
+        name: 'Main',
         sourcemap: true
       },
       {
@@ -119,16 +114,16 @@ if (!process.env.DEVELOPMENT) {
   rollupBuilds.push(
     // Generate minifed bundle
     {
-      input: './src/js/shepherd.js',
+      input: './src/js/main.js',
       output: [
         {
-          file: 'dist/js/shepherd.min.js',
+          file: 'dist/js/main.min.js',
           format: 'umd',
-          name: 'Shepherd',
+          name: 'Main',
           sourcemap: true
         },
         {
-          file: 'dist/js/shepherd.esm.min.js',
+          file: 'dist/js/main.esm.min.js',
           format: 'esm',
           sourcemap: true
         }

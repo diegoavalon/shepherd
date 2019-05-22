@@ -1,26 +1,13 @@
 {
-  "name": "shepherd.js",
-  "version": "2.8.0",
+  "name": "eh-target",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shipshapecode/shepherd.git"
+    "url": "git+https://github.com/diegoavalon/eh-target.git"
   },
-  "description": "Guide your users through a tour of your app.",
-  "keywords": [
-    "site tour",
-    "tour",
-    "tutorial",
-    "shepherd"
-  ],
+  "description": "Build system perfect for generating performant scripts",
   "authors": [
-    "Adam Schwartz <adam.flynn.schwartz@gmail.com>",
-    "Zack Bloom <zackbloom@gmail.com>"
-  ],
-  "maintainers": [
-    "Nicholas Hwang <nick.joosung.hwang@gmail.com>",
-    "Geoff Daigle <geoffreydaigle@gmail.com>",
-    "Robert Wagner <rwwagner90@gmail.com>",
-    "Chuck Carpenter <charleswcarpenter3@gmail.com>"
+    "Diego Avalon <diego.avalon@ehealth.com>"
   ],
   "scripts": {
     "build": "yarn clean && rollup -c",
@@ -40,10 +27,10 @@
     "view-coverage": "http-server -p 9003 ./coverage/lcov-report -o",
     "watch": "yarn clean && rollup -c --environment DEVELOPMENT --watch"
   },
-  "homepage": "https://shipshapecode.github.io/shepherd/docs/welcome/",
+  "homepage": "https://ehealthinsurance.com",
   "license": "MIT",
-  "main": "dist/js/shepherd.js",
-  "module": "dist/js/shepherd.esm.js",
+  "main": "dist/js/main.js",
+  "module": "dist/js/main.esm.js",
   "dependencies": {
     "element-matches": "^0.1.2",
     "lodash.defer": "^4.1.0",
@@ -100,6 +87,6 @@
     "stylelint-config-ship-shape": "^0.5.2"
   },
   "engines": {
-    "node": ">= 6.*"
+    "node": ">= 10.13*"
   }
 }
