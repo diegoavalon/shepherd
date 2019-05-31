@@ -1,3 +1,5 @@
-import '../scss/main.scss';
+import "../scss/main.scss";
 
-console.log('sup gina from the console');
+import renderBannerCTA from "./banner-with-image";
+
+renderBannerCTA();

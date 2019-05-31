@@ -8,6 +8,7 @@ import { eslint } from 'rollup-plugin-eslint';
 import fs from 'fs';
 import license from 'rollup-plugin-license';
 import postcss from 'postcss';
+import purgecss from 'rollup-plugin-purgecss';
 import filesize from 'rollup-plugin-filesize';
 import resolve from 'rollup-plugin-node-resolve';
 import sass from 'rollup-plugin-sass';
@@ -67,6 +68,9 @@ if (!process.env.DEVELOPMENT) {
 // If we are running with --environment DEVELOPMENT, serve via browsersync for local development
 if (process.env.DEVELOPMENT) {
   plugins.push(sass(sassOptions));
+  plugins.push(purgecss({
+    content: ['playground/index.html']
+  }));
 
   plugins.push(browsersync({
     host: 'localhost',
